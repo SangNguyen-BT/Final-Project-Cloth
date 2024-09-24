@@ -1,0 +1,10 @@
+.header-nav {
+    background-color: transparent;
+    width: 100%;
+    
+}
+.header-carosel {
+    background-size: cover;
+    background-position: center;
+    height: 700px;
+}
