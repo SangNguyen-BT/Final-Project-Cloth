@@ -1,0 +1,11 @@
+.header-page.showSearch .search-tab {
+  inset: 0 0 auto 0;
+}
+.search-tab {
+  width: 100%;
+  background-color: #ffff;
+  position: fixed;
+  inset: -100% 0 auto 0;
+  transition: 0.5s;
+  padding: 10px;
+}
