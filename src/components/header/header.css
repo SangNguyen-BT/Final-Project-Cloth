@@ -1,14 +1,13 @@
-.header-nav {
-  background-color: transparent;
+.prata-regular {
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+/* .header-carosel {
+  height: 100%;
   width: 100%;
-  position: absolute;
-}
-.header-carosel {
-  background-size: contain;
-  background-position: center;
-  height: 700px;
-}
-.navbar-nav a {
+} */
+/* .navbar-nav a {
   color: #fff;
   margin: 0 30px;
   font-weight: bold;
@@ -18,15 +17,15 @@
 .navbar-nav a:hover {
   box-shadow: inset 120px 0 0 0 #54b3d6;
   color: white;
-}
-.icon {
+} */
+/* .icon {
   display: flex;
   align-items: center;
   margin-left: 30px;
-}
+} */
 .header-icon {
   font-size: 25px;
-  color: white;
+  color: black;
   cursor: pointer;
   padding-right: 20px;
 }
