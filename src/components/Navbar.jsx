@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { assets } from "../assets/assets";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import CartTab from "./cartTab/CartTab";
 
 const Navbar = (props) => {
@@ -9,7 +9,7 @@ const Navbar = (props) => {
 
   return (
     <div className="flex items-center justify-between font-medium header-page">
-      <img src="./images/3.jpg" className="w-32" alt="" />
+      <Link to={'/'}><img src="./images/3.jpg" className="w-32" alt="" /></Link>
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
         <NavLink to="/" className="flex flex-col items-center gap-1">
           <p>HOME</p>
