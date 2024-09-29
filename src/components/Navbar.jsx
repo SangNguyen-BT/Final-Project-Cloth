@@ -36,6 +36,7 @@ const Navbar = (props) => {
           <p className="shopping-count">0</p>
         </span>
         <CartTab showCarttab={showCarttab} />
+
         <img
           src={assets.menu_icon}
           className="w-5 cursor-pointer sm:hidden"
