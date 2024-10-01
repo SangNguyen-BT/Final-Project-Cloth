@@ -2,7 +2,7 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" style={{width: "30%"}} className="block m-auto">
   <radialGradient id="a11" cx=".66" fx=".66" cy=".3125" fy=".3125" gradientTransform="scale(1.5)">
     <stop offset={0} stopColor="#1E91FF" />
     <stop offset=".3" stopColor="#1E91FF" stopOpacity=".9" />

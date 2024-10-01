@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { assets } from "../assets/assets";
 import { Link, NavLink } from "react-router-dom";
 import CartTab from "./cartTab/CartTab";
+import { ShopContext } from "../context/ShopContext";
 
 const Navbar = (props) => {
-  const { showCarttab } = props;
+  // const { showCarttab } = props;
   const [visible, setVisible] = useState(false);
+  const { setShowSearch, showCarttab, totalItemInCart } = useContext(ShopContext);
 
   return (
     <div className="flex items-center justify-between font-medium header-page sticky-top bg-white z-2">
-      <Link to={'/'}><img src="./images/3.jpg" className="w-32" alt="" /></Link>
+      <Link to={"/"}>
+        <img src="./images/3.jpg" className="w-32" alt="" />
+      </Link>
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
         <NavLink to="/" className="flex flex-col items-center gap-1">
           <p>HOME</p>
@@ -29,13 +33,18 @@ const Navbar = (props) => {
         </NavLink>
       </ul>
       <div className="flex items-center gap-6">
-        <img src={assets.search_icon} className="w-5 cursor-pointer" alt="" />
+        <img
+          src={assets.search_icon}
+          className="w-5 cursor-pointer"
+          alt=""
+          onClick={() => setShowSearch(true)}
+        />
 
         <span className="btn-shoppingcart" onClick={showCarttab}>
           <i className="fa fa-shopping-bag header-icon" />
-          <p className="shopping-count">0</p>
+          <p className="shopping-count">{totalItemInCart()}</p>
         </span>
-        <CartTab showCarttab={showCarttab} />
+        <CartTab />
 
         <img
           src={assets.menu_icon}

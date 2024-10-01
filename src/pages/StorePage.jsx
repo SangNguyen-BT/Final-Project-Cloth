@@ -2,16 +2,16 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import Title from "../components/Title";
-import ProductItem from "../components/ProductItem";
 import Loading from "../components/Loading";
+import RenderProducts from "../components/RenderProducts";
 
 const StorePage = () => {
-  const { products } = useContext(ShopContext);
-  const [showFilter, setShowFilter] = useState(false);
-  const [filterProducts, setFilterProducts] = useState([]);
+  const { products, search, showSearch } = useContext(ShopContext);
+  const [showFilter, setShowFilter] = useState(false); // Responsive Filter Bar
+  const [filterProducts, setFilterProducts] = useState([]); // Render Products
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
-  const [queryInProgress, setQueryInProgress] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   function toggleCategory(e) {
     if (category.includes(e.target.value)) {
@@ -32,6 +32,12 @@ const StorePage = () => {
   function appyFilter() {
     let productsCopy = products.slice();
 
+    if (showSearch && search) {
+      productsCopy = productsCopy.filter((item) =>
+        item.name.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
     if (category.length > 0) {
       productsCopy = productsCopy.filter((item) =>
         category.includes(item.category)
@@ -47,11 +53,14 @@ const StorePage = () => {
 
   useEffect(() => {
     setFilterProducts(products);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
   }, []);
 
   useEffect(() => {
     appyFilter();
-  }, [category, subCategory]);
+  }, [category, subCategory, search, showSearch]);
 
   return (
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
@@ -161,19 +170,12 @@ const StorePage = () => {
         </div>
 
         {/* Map Products */}
-         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
-          {filterProducts &&
-            filterProducts.map((item, index) => {
-              return (
-                <ProductItem
-                  key={index}
-                  name={item.name}
-                  id={item.id}
-                  price={item.price}
-                  image={item.image}
-                />
-              );
-            })}
+        <div>
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <RenderProducts filterProducts={filterProducts} />
+          )}
         </div>
       </div>
     </div>

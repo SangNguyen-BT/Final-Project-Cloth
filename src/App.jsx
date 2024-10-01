@@ -8,17 +8,13 @@ import Product from "./pages/Product";
 import PurchaseOrder from "./pages/PurchaseOrder";
 import Navbar from "./components/Navbar";
 import Footer from "./components/footer/Footer";
-import CartTab from "./components/cartTab/CartTab";
-
-function showCarttab() {
-  const body = document.querySelector(".header-page");
-  body.classList.toggle("showCart");
-}
+import SearchBar from "./components/SearchBar";
 
 function App() {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
-      <Navbar showCarttab={showCarttab} />
+      <Navbar />
+      <SearchBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/storepage" element={<StorePage />} />
@@ -28,7 +24,6 @@ function App() {
         <Route path="/place-order" element={<PurchaseOrder />} />
       </Routes>
       <Footer />
-      <CartTab showCarttab={showCarttab} />
     </div>
   );
 }
