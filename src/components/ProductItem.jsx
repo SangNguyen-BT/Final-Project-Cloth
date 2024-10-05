@@ -15,14 +15,14 @@ const ProductItem = (props) => {
             alt=""
           />
         </div>
-        <p className="pt-3 pb-1 text-sm">{name}</p>
+        <p className="pt-3 pb-1 text-xl">{name}</p>
       </Link>
-      <div className="flex justify-between">
-        <p className="text-sm font-medium">
+      <div className="flex justify-between mb-0">
+        <p className="text-2xl font-medium">
           {currency}
           {price}
         </p>
-        <button><span className="w-5 h-6 bg-red-500 rounded-full flex pl-1.5" onClick={() => handleAddToCart(props)}>+</span></button>
+        <button className="" onClick={() => handleAddToCart(props)}><i className="fa fa-shopping-bag text-2xl hover:text-red-500" /></button>
       </div>
     </div>
   );
