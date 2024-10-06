@@ -53,13 +53,13 @@ const CartTab = () => {
       </div>
     );
   } else {
-    cartBodyElement = cartList.map((item) => {
+    cartBodyElement = cartList.map((item, index) => {
       const { id, image, name, price, quantity } = item;
       const totalPricePerProduct = quantity * price;
       const isDisableDecreaseButton = quantity === 1;
 
       return (
-        <div className="list-cart-item" key={id}>
+        <div className="list-cart-item" key={index} id={id}>
           <img src={image[0]} />
           <div className="cart-item-detail">
             <h3>{name}</h3>

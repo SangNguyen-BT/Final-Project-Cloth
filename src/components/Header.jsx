@@ -35,7 +35,7 @@ const Header = () => {
               alt="..."
             />
           </div>
-          <div className="carousel-item" data-bs-interval="2000">
+          <div className="carousel-item" data-bs-interval="1500">
             <img
               src="https://media.routine.vn/1920x0/prod/media/d-active-wear-nam-jpg.webp"
               className="d-block w-100"
@@ -44,8 +44,8 @@ const Header = () => {
           </div>
           <div className="carousel-item">
             <img
-              src="https://media.routine.vn/0x0/prod/media/882e5c12-4b5f-4fb0-ad2c-0c781d44ccc1.webp"
-              className="d-block w-100 h-85"
+              src="https://media.routine.vn/1920x0/prod/media/d-create-things-together-nam-jpg-cx5y.webp"
+              className="d-block w-100"
               alt="..."
             />
           </div>

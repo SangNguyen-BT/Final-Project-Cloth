@@ -2,18 +2,15 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
-import ProductItem from "../components/ProductItem";
 import BestSeller from "../components/BestSeller";
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency, handleAddToCart} = useContext(ShopContext);
+  const { products, currency, handleAddToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState("");
-  
-  
 
-  const fetchProductData = async () => {
+  const fetchProductData =  () => {
     products.map((item) => {
       if (item._id === productId) {
         setProductData(item);
@@ -34,7 +31,7 @@ const Product = () => {
         {/* product image */}
         <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
           <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">
-            {productData.image.map((item,index) => (
+            {productData.image.map((item, index) => (
               <img
                 src={item}
                 key={index}
@@ -66,11 +63,16 @@ const Product = () => {
           <p className="mt-3 text-gray-500 md:w-4/5">
             {productData.description}
           </p>
-          
+
           <div className="py-4">
-            <button onClick={()=> handleAddToCart()} className="bg-black text-white px-8 py-3 active:bg-gray-700">ADD TO CART</button>
+            <button
+              onClick={() => handleAddToCart(productData)}
+              className="bg-black text-white px-8 py-3 active:bg-gray-700"
+            >
+              ADD TO CART
+            </button>
           </div>
-          <hr className="mt-2 sm:w-4/5"/>
+          <hr className="mt-2 sm:w-4/5" />
         </div>
       </div>
       <BestSeller />
