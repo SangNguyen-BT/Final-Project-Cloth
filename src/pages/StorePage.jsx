@@ -162,11 +162,11 @@ const StorePage = () => {
           <Title text1={"All"} text2={" COLLECTIONS"} />
 
           {/* Product Sort */}
-          <select className="border-2 border-gray-300 text-sm px-2">
+          {/* <select className="border-2 border-gray-300 text-sm px-2">
             <option value="all">Sort by All</option>
             <option value="low-high">Low to High</option>
             <option value="high-low">High to Low</option>
-          </select>
+          </select> */}
         </div>
 
         {/* Map Products */}
