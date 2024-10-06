@@ -1,5 +1,5 @@
 import React from "react";
-import "./header.css";
+import "./css/header.css";
 
 const Header = () => {
   return (
@@ -28,7 +28,7 @@ const Header = () => {
         data-bs-ride="carousel"
       >
         <div className="carousel-inner">
-          <div className="carousel-item active" data-bs-interval="2000">
+          <div className="carousel-item active" data-bs-interval="1000">
             <img
               src="https://media.routine.vn/0x0/prod/media/banner-website-moi-09-jpg.webp"
               className="d-block w-100"

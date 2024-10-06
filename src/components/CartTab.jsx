@@ -1,9 +1,13 @@
-import React, { useContext } from "react";
-import "./style.css";
-import { ShopContext } from "../../context/ShopContext";
+import React, { useContext, useState } from "react";
+import "./css/CartTab.css";
+import { ShopContext } from "../context/ShopContext";
+import EmptyCartModal from "./EmptyCartModal";
 
-const CartTab = (props) => {
-  const { showCarttab, cartList, setCartList } = useContext(ShopContext);
+const CartTab = () => {
+  const { showCarttab, cartList, setCartList, totalPriceInCart, navigate } =
+    useContext(ShopContext);
+  const [isEmptyModalOpen, setIsEmptyModalOpen] = useState(false);
+
   const isEmpty = cartList.length === 0;
   let cartBodyElement = "";
 
@@ -32,11 +36,14 @@ const CartTab = (props) => {
     setCartList(updatedCartList);
   }
 
-  function totalPriceInCart() {
-    return cartList.reduce(
-      (total, item) => total + item.price * item.quantity,
-      0
-    );
+  function linkToPayment() {
+    if (isEmpty) {
+      setIsEmptyModalOpen(true)
+    } else {
+      navigate("/place-order");
+      showCarttab();
+    }
+ 
   }
 
   if (isEmpty) {
@@ -99,11 +106,16 @@ const CartTab = (props) => {
       <div className="cart-footer">
         <div className="cart-footer-total">
           <strong>Total</strong>
-          <span className="cart-total">$ {totalPriceInCart()}</span>
+          <span className="cart-total">$ {totalPriceInCart()}.00</span>
         </div>
-        <button className="button-clear">CLEAR CART</button>
-        <button className="button-checkOut">CHECKOUT</button>
+        <button className="button-clear" onClick={() => setCartList([])}>
+          CLEAR CART
+        </button>
+        <button className="button-checkOut" onClick={linkToPayment}>
+          CHECKOUT
+        </button>
       </div>
+      <EmptyCartModal isEmptyModalOpen={isEmptyModalOpen} onClose={() => setIsEmptyModalOpen(false)}/>
     </div>
   );
 };

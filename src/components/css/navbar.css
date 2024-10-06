@@ -1,0 +1,20 @@
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+.navbar-content ul hr {
+    width: 50%;
+    border-style: none;
+    height: 1.5px;
+}
+.side-bar {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    overflow: hidden;
+}

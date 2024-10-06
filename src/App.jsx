@@ -7,7 +7,7 @@ import ContactUs from "./pages/ContactUs";
 import Product from "./pages/Product";
 import PurchaseOrder from "./pages/PurchaseOrder";
 import Navbar from "./components/Navbar";
-import Footer from "./components/footer/Footer";
+import Footer from "./components/Footer";
 import SearchBar from "./components/SearchBar";
 
 function App() {

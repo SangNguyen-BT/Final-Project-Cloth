@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const ProductItem = (props) => {
   const { currency, handleAddToCart } = useContext(ShopContext);
-  const { id, image, name, price } = props
+  const { id, image, name, price } = props;
   return (
     <div>
       <Link className="text-gray-700 cursor-pointer" to={`/product/${id}`}>
@@ -22,7 +22,12 @@ const ProductItem = (props) => {
           {currency}
           {price}
         </p>
-        <button><span className="w-5 h-6 bg-red-500 rounded-full flex pl-1.5" onClick={() => handleAddToCart(props)}>+</span></button>
+        <button
+          className="w-5 h-6 bg-red-500 rounded-full flex pl-1.5 text-white active:bg-white"
+          onClick={() => handleAddToCart(props)}
+        >
+          +
+        </button>
       </div>
     </div>
   );

@@ -1,0 +1,26 @@
+.emptyModal {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inset: 0;
+}
+.emptyModal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.25rem;
+    width: 20rem;
+}
+.emptyModal-content h2 {
+    font-size: 1.123rem;
+    line-height: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: black;
+    text-align: center;
+}
+.emptyModal-content-btn {
+    background-color: #d1d5db;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+}

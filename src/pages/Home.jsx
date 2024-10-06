@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/header/Header";
+import Header from "../components/Header";
 import LatestCollection from "../components/LatestCollection";
 import BestSeller from "../components/BestSeller";
 import OutPolicy from "../components/OutPolicy";

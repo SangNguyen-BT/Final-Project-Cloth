@@ -2,11 +2,11 @@
   inset: 0 0 0 auto;
 }
 .cart-tab {
-  width: 40ch;
+  width: 39ch;
   background-color: #353432;
   color: #eee;
   position: fixed;
-  inset: 0 -40ch 0 auto;
+  inset: 0 -39ch 0 auto;
   display: grid;
   grid-template-rows: auto 1fr auto;
   transition: inset 0.5s ease;
@@ -33,7 +33,8 @@
 .cart-empty {
   text-align: center;
   padding-block: 20px;
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: bold;
 }
 .cart-close {
   position: absolute;
@@ -190,7 +191,7 @@ span {
   transform: translateY(3px);
 }
 .button-checkOut {
-  padding: 15px 25px;
+  padding: 15px 45px;
   font-size: 1rem;
   text-align: center;
   cursor: pointer;
