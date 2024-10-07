@@ -5,14 +5,14 @@ import { assets } from "../assets/assets";
 import BestSeller from "../components/BestSeller";
 
 const Product = () => {
-  const { productId } = useParams();
+  const { _productId } = useParams();
   const { products, currency, handleAddToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState("");
 
   const fetchProductData =  () => {
     products.map((item) => {
-      if (item._id === productId) {
+      if (item._id === _productId) {
         setProductData(item);
         setImage(item.image[0]);
         return null;
@@ -22,7 +22,7 @@ const Product = () => {
 
   useEffect(() => {
     fetchProductData();
-  }, [productId]);
+  }, [_productId]);
 
   return productData ? (
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">

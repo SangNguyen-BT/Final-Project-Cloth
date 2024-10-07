@@ -11,7 +11,7 @@ const RenderProducts = (props) => {
             <ProductItem
               key={index}
               name={item.name}
-              id={item._id}
+              _id={item._id}
               price={item.price}
               image={item.image}
             />

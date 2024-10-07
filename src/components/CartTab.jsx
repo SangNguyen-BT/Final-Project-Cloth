@@ -11,9 +11,11 @@ const CartTab = () => {
   const isEmpty = cartList.length === 0;
   let cartBodyElement = "";
 
-  function handleIncreaseQuantity(id) {
+  function handleIncreaseQuantity(_id) {
+    console.log(_id);
+    
     const updatedCartList = cartList.map((item) => {
-      if (item.id == id) {
+      if (item._id == _id) {
         return { ...item, quantity: item.quantity + 1 };
       }
       return item;
@@ -21,9 +23,9 @@ const CartTab = () => {
     setCartList(updatedCartList);
   }
 
-  function handleDecreaseQuantity(id) {
+  function handleDecreaseQuantity(_id) {
     const updatedCartList = cartList.map((item) => {
-      if (item.id == id) {
+      if (item._id == _id) {
         return { ...item, quantity: item.quantity - 1 };
       }
       return item;
@@ -31,8 +33,8 @@ const CartTab = () => {
     setCartList(updatedCartList);
   }
 
-  function handleDelete(id) {
-    const updatedCartList = cartList.filter((item) => item.id !== id);
+  function handleDelete(_id) {
+    const updatedCartList = cartList.filter((item) => item._id !== _id);
     setCartList(updatedCartList);
   }
 
@@ -54,12 +56,12 @@ const CartTab = () => {
     );
   } else {
     cartBodyElement = cartList.map((item, index) => {
-      const { id, image, name, price, quantity } = item;
+      const { _id, image, name, price, quantity } = item;
       const totalPricePerProduct = quantity * price;
       const isDisableDecreaseButton = quantity === 1;
 
       return (
-        <div className="list-cart-item" key={index} id={id}>
+        <div className="list-cart-item" key={index} _id={_id}>
           <img src={image[0]} />
           <div className="cart-item-detail">
             <h3>{name}</h3>
@@ -69,7 +71,7 @@ const CartTab = () => {
                 <button
                   className="btn btn-primary"
                   disabled={isDisableDecreaseButton}
-                  onClick={() => handleDecreaseQuantity(id)}
+                  onClick={() => handleDecreaseQuantity(_id)}
                 >
                   <i className="fa fa-minus" />
                 </button>
@@ -77,14 +79,14 @@ const CartTab = () => {
                 <span className="qty">{quantity}</span>
                 <button
                   className="btn btn-primary"
-                  onClick={() => handleIncreaseQuantity(id)}
+                  onClick={() => handleIncreaseQuantity(_id)}
                 >
                   <i className="fa fa-plus" />
                 </button>
               </div>
 
               <span className="list-cart-price">$ {totalPricePerProduct}</span>
-              <button className="button-trash" onClick={() => handleDelete(id)}>
+              <button className="button-trash" onClick={() => handleDelete(_id)}>
                 <i className="fa fa-trash-alt" />
               </button>
             </div>

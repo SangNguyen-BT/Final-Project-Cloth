@@ -17,8 +17,8 @@ function ShopContextProvider(props) {
     body.classList.toggle("showCart");
   }
 
-  function handleAddToCart(productItem) {
-    const productExisted = cartList.find((item) => item.id === productItem.id);
+  function handleAddToCart(productItem) { 
+    const productExisted = cartList.find((item) => item._id === productItem._id);
     if (productExisted) {
       productExisted.quantity += 1;
       setCartList([...cartList]);
