@@ -1,7 +1,7 @@
 import React from "react";
 
 const OpenModal = (props) => {
-  const { isModalOpen, onClose, backToHomePage } = props;
+  const { isModalOpen, backToHomePage } = props;
   if (!isModalOpen) return null;
 
   return (
@@ -16,9 +16,6 @@ const OpenModal = (props) => {
           >
             Go to Homepage
           </button>
-          {/* <button onClick={onClose} className="bg-gray-300 px-4 py-2 rounded">
-            Close
-          </button> */}
         </div>
       </div>
     </div>

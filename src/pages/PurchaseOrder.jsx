@@ -132,7 +132,6 @@ const PurchaseOrder = () => {
         </div>
         <OpenModal
           isModalOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
           backToHomePage={backToHomePage}
         />
       </div>
