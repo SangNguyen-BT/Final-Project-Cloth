@@ -9,9 +9,12 @@ a.active hr {
 }
 *{
   font-family: Outfit;
-  
 }
 
 ::-webkit-scrollbar {
   display: none;
+}
+:root{
+  max-width: 1280px;
+  margin: 0 auto;
 }

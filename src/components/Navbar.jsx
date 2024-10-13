@@ -15,21 +15,21 @@ const Navbar = () => {
       <Link to={"/"}>
         <img src="./images/3.jpg" className="w-32" alt="" />
       </Link>
-      <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
+      <ul className="hidden sm:flex gap-5 text-lg text-gray-700">
         <NavLink to="/" className="flex flex-col items-center gap-1">
-          <p>HOME</p>
+          <p className="hover:text-blue-400">HOME</p>
           <hr className="bg-gray-700 hidden" />
         </NavLink>
         <NavLink to="/storepage" className="flex flex-col items-center gap-1">
-          <p>STORE</p>
+          <p className="hover:text-blue-400">STORE</p>
           <hr className="bg-gray-700 hidden" />
         </NavLink>
         <NavLink to="/about" className="flex flex-col items-center gap-1">
-          <p>ABOUT US</p>
+          <p className="hover:text-blue-400">ABOUT US</p>
           <hr className="bg-gray-700 hidden" />
         </NavLink>
         <NavLink to="/contact" className="flex flex-col items-center gap-1">
-          <p>CONTACT US</p>
+          <p className="hover:text-blue-400">CONTACT US</p>
           <hr className="bg-gray-700 hidden" />
         </NavLink>
       </ul>
@@ -42,7 +42,7 @@ const Navbar = () => {
         />
 
         <span className="btn-shoppingcart" onClick={showCarttab}>
-          <i className="fa fa-shopping-bag header-icon" />
+          <i className="fa fa-shopping-bag header-icon hover:text-blue-400" />
           <p className="shopping-count">{totalItemInCart()}</p>
         </span>
         <CartTab />

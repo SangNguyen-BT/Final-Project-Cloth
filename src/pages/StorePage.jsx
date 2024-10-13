@@ -84,30 +84,30 @@ const StorePage = () => {
             showFilter ? "" : "hidden"
           } sm:block`}
         >
-          <p className="mb-3 text-sm font-medium">CATEGORIES</p>
+          <p className="mb-3 text-base font-medium">CATEGORIES</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
-            <p className="flex gap-2">
+            <p className="flex gap-2 text-base">
               <input
                 type="checkbox"
-                className="w-3"
+                className="w-4"
                 value={"Men"}
                 onChange={toggleCategory}
               />
               Men
             </p>
-            <p className="flex gap-2">
+            <p className="flex gap-2 text-base">
               <input
                 type="checkbox"
-                className="w-3"
+                className="w-4"
                 value={"Women"}
                 onChange={toggleCategory}
               />
               Women
             </p>
-            <p className="flex gap-2">
+            <p className="flex gap-2 text-base">
               <input
                 type="checkbox"
-                className="w-3"
+                className="w-4"
                 value={"Kids"}
                 onChange={toggleCategory}
               />
@@ -122,30 +122,30 @@ const StorePage = () => {
             showFilter ? "" : "hidden"
           } sm:block`}
         >
-          <p className="mb-3 text-sm font-medium">TYPE</p>
+          <p className="mb-3 text-base font-medium">TYPE</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
-            <p className="flex gap-2">
+            <p className="flex gap-2 text-base">
               <input
                 type="checkbox"
-                className="w-3"
+                className="w-4"
                 value={"Topwear"}
                 onChange={toggleSubCategory}
               />
               Topwear
             </p>
-            <p className="flex gap-2">
+            <p className="flex gap-2 text-base">
               <input
                 type="checkbox"
-                className="w-3"
+                className="w-4"
                 value={"Bottomwear"}
                 onChange={toggleSubCategory}
               />
               Bottomwear
             </p>
-            <p className="flex gap-2">
+            <p className="flex gap-2 text-base">
               <input
                 type="checkbox"
-                className="w-3"
+                className="w-4"
                 value={"Winterwear"}
                 onChange={toggleSubCategory}
               />

@@ -56,23 +56,33 @@ const Product = () => {
             <img src={assets.star_dull_icon} alt="" />
             <p className="pl-2">(122)</p>
           </div>
-          <p className="mt-3 text-3xl font-medium">
+          <p className="mt-4 text-3xl font-medium">
             {currency}
             {productData.price}
           </p>
-          <p className="mt-3 text-gray-500 md:w-4/5">
+          <p className="mt-4 text-gray-500 md:w-4/5">
             {productData.description}
           </p>
 
-          <div className="py-4">
+          <div className="mt-20  mb-3">
             <button
               onClick={() => handleAddToCart(productData)}
-              className="bg-black text-white px-8 py-3 active:bg-gray-700"
+              className="bg-red-400 text-white px-8 py-3 hover:bg-blue-400"
             >
               ADD TO CART
             </button>
           </div>
           <hr className="mt-2 sm:w-4/5" />
+          <div className="py-4">
+            <div className="flex flex-col gap-1">
+              <b>Made in VietNam</b>
+              <p>
+              100% Original product. <br />
+              Cash on delivery is available on this product. <br />
+              Easy return and exchange policy within 7 days. <br />
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       <BestSeller />
