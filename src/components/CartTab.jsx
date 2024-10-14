@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./css/CartTab.css";
 import { ShopContext } from "../context/ShopContext";
 import EmptyCartModal from "./EmptyCartModal";
@@ -11,9 +11,14 @@ const CartTab = () => {
   const isEmpty = cartList.length === 0;
   let cartBodyElement = "";
 
+  useEffect(() => {
+    const storeCartList = localStorage.getItem("cartList");
+    if (storeCartList) {
+      setCartList(JSON.parse(storeCartList));
+    }
+  }, []);
+
   function handleIncreaseQuantity(_id) {
-    console.log(_id);
-    
     const updatedCartList = cartList.map((item) => {
       if (item._id == _id) {
         return { ...item, quantity: item.quantity + 1 };
@@ -21,6 +26,7 @@ const CartTab = () => {
       return item;
     });
     setCartList(updatedCartList);
+    localStorage.setItem("cartList", JSON.stringify(updatedCartList));
   }
 
   function handleDecreaseQuantity(_id) {
@@ -31,21 +37,26 @@ const CartTab = () => {
       return item;
     });
     setCartList(updatedCartList);
+    localStorage.setItem("cartList", JSON.stringify(updatedCartList));
   }
 
   function handleDelete(_id) {
     const updatedCartList = cartList.filter((item) => item._id !== _id);
     setCartList(updatedCartList);
+    localStorage.setItem("cartList", JSON.stringify(updatedCartList));
   }
 
+  function handleDeleteAll() {
+    setCartList([]);
+    localStorage.setItem("cartList", JSON.stringify([]));
+  }
   function linkToPayment() {
     if (isEmpty) {
-      setIsEmptyModalOpen(true)
+      setIsEmptyModalOpen(true);
     } else {
       navigate("/place-order");
       showCarttab();
     }
- 
   }
 
   if (isEmpty) {
@@ -86,7 +97,10 @@ const CartTab = () => {
               </div>
 
               <span className="list-cart-price">$ {totalPricePerProduct}</span>
-              <button className="button-trash" onClick={() => handleDelete(_id)}>
+              <button
+                className="button-trash"
+                onClick={() => handleDelete(_id)}
+              >
                 <i className="fa fa-trash-alt" />
               </button>
             </div>
@@ -110,14 +124,17 @@ const CartTab = () => {
           <strong>Total</strong>
           <span className="cart-total">$ {totalPriceInCart()}.00</span>
         </div>
-        <button className="button-clear" onClick={() => setCartList([])}>
+        <button className="button-clear" onClick={handleDeleteAll}>
           CLEAR CART
         </button>
         <button className="button-checkOut" onClick={linkToPayment}>
           CHECKOUT
         </button>
       </div>
-      <EmptyCartModal isEmptyModalOpen={isEmptyModalOpen} onClose={() => setIsEmptyModalOpen(false)}/>
+      <EmptyCartModal
+        isEmptyModalOpen={isEmptyModalOpen}
+        onClose={() => setIsEmptyModalOpen(false)}
+      />
     </div>
   );
 };
