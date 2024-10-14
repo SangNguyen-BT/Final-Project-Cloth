@@ -5,7 +5,7 @@ const OpenModal = (props) => {
   if (!isModalOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
+    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-[200]">
       <div className="bg-white p-8 rounded shadow-lg w-80">
         <h2 className="text-lg text-center font-bold mb-4">Order Confirmed!</h2>
         <p className="mb-6 text-center">Your order has been successfully placed.</p>

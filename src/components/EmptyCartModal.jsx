@@ -12,7 +12,7 @@ const EmptyCartModal = (props) => {
         <p className="mb-6 text-black text-center">
           You don't have anything in the cart! Please keep shopping!
         </p>
-        <div className="flex justify-end gap-4 text-black">
+        <div className="flex justify-center gap-4 text-black">
           <button onClick={onClose} className="emptyModal-content-btn">
             Close
           </button>

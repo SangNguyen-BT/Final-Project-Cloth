@@ -5,7 +5,7 @@
     font-weight: 500;
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 100;
 }
 .navbar-content ul hr {
     width: 50%;
