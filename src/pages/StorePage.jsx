@@ -4,6 +4,7 @@ import { assets } from "../assets/assets";
 import Title from "../components/Title";
 import Loading from "../components/Loading";
 import RenderProducts from "../components/RenderProducts";
+import Pagination from "../components/Pagination";
 
 const StorePage = () => {
   const { products, search, showSearch } = useContext(ShopContext);
@@ -12,6 +13,8 @@ const StorePage = () => {
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1); // Pagination
+  const [postsPerPage, setPostsPerPage] = useState(8); // Pagination
 
   function toggleCategory(e) {
     if (category.includes(e.target.value)) {
@@ -61,6 +64,10 @@ const StorePage = () => {
   useEffect(() => {
     appyFilter();
   }, [category, subCategory, search, showSearch]);
+
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPosts = filterProducts.slice(firstPostIndex, lastPostIndex);
 
   return (
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
@@ -167,7 +174,15 @@ const StorePage = () => {
           {isLoading ? (
             <Loading />
           ) : (
-            <RenderProducts filterProducts={filterProducts} />
+            <div>
+              <RenderProducts filterProducts={currentPosts} />
+              <Pagination
+                totalPosts={filterProducts.length}
+                postsPerPage={postsPerPage}
+                setCurrentPage={setCurrentPage}
+                currentPage={currentPage}
+              />
+            </div>
           )}
         </div>
       </div>
