@@ -160,13 +160,6 @@ const StorePage = () => {
       <div className="flex-1">
         <div className="flex justify-between text-base sm:text-2xl mb-2.5">
           <Title text1={"All"} text2={" COLLECTIONS"} />
-
-          {/* Product Sort */}
-          {/* <select className="border-2 border-gray-300 text-sm px-2">
-            <option value="all">Sort by All</option>
-            <option value="low-high">Low to High</option>
-            <option value="high-low">High to Low</option>
-          </select> */}
         </div>
 
         {/* Map Products */}
